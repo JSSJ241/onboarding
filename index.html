@@ -625,7 +625,17 @@
 
             // 5. Чекбоксы "Что понравилось" (хотя бы один)
             const likes = document.querySelectorAll('input[name="likes"]:checked');
-            const likesValid = likes.length > 0;
+            let likesValid = likes.length > 0;
+            
+            // Проверяем: если выбран "Другое", то должно быть заполнено текстовое поле
+            const otherCheckbox = document.getElementById('likes-other-checkbox');
+            const otherInput = document.querySelector('#likes-other-input input');
+            if (otherCheckbox && otherCheckbox.checked) {
+                const otherText = otherInput?.value.trim() || '';
+                if (otherText.length < 2) {
+                    likesValid = false; // "Другое" выбрано, но текст не введён
+                    }
+                }
 
             // 6. Текстовое поле "Что улучшить"
             const improve = document.getElementById('improve');
