@@ -606,7 +606,7 @@
         // ============================================
         // 1. НАСТРОЙКА FORMPREE
         // ============================================
-        const FORMSPREE_URL = "https://formspree.io/f/xnpagvvb"; // ЗАМЕНИТЕ НА ВАШ ID
+        const FORMSPREE_URL = "https://formspree.io/f/mkjwqpnl"; // ЗАМЕНИТЕ НА ВАШ ID
 
         // ============================================
         // 2. ОБРАБОТКА ФОРМЫ
@@ -675,7 +675,14 @@
             // Открытый вопрос
             const improve = document.getElementById('improve').value.trim() || 'Не указано';
 
-            return { department, comfort, answers, useful, likes, improve };
+            return {
+                "Отдел": department,
+                "Комфорт на встрече (1-10)": comfort,
+                "HR ответила на вопросы (1-10)": answers,
+                "Польза встречи (1-10)": useful,
+                "Что понравилось": likes,
+                "Что улучшить": improve
+            };
         }
 
         // Отправка данных
